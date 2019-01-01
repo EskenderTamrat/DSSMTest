@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: sancho:dssm #eskendertamrat52/semanticmodeling:latest
+    steps:
+      - checkout
+      - run:
+          name: install requirements
+          command: python3.6 -m pip install -r requirements.txt
+      - run:
+          name: Generate GRPC files
+          command: cd service_spec && python3.6 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. DSSMService.proto
+      - run: 
+          name: Run Tests
+          command: python3.6 -m unittest test_grpc_call.TestSuiteGrpc
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
