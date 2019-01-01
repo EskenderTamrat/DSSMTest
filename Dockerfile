@@ -26,9 +26,9 @@ RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
 RUN python3.6 -m pip install -r requirements.txt
 
-COPY . /DSSM-LSTM
+COPY . /DSSMTest
 
-WORKDIR /DSSM-LSTM
+WORKDIR /DSSMTest
 
 #EXPOSE jsonrpc port
 EXPOSE 8001
