@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: sancho:dssm #eskendertamrat52/semanticmodeling:latest
+      - image: sancho:latest #eskendertamrat52/semanticmodeling:latest
     steps:
       - checkout
       - run:
